@@ -1,0 +1,5 @@
+.destroy,
+.toggle,
+label[for=toggle-all] {
+  cursor: pointer;
+}

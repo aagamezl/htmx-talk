@@ -1,0 +1,6 @@
+{{!-- <p>{{showClearCompleted}}</p> --}}
+<div id="clear-completed" hx-swap-oob="true">
+  {{#if showClearCompleted}}
+    <button hx-post="/todos/clear-completed" hx-target="#todo-list" class="clear-completed">Clear completed</button>
+  {{/if}}
+</div>

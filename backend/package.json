@@ -1,0 +1,29 @@
+{
+  "name": "htmx-talk-backend",
+  "module": "src/app.js",
+  "type": "module",
+  "scripts": {
+    "dev:json": "bun --watch run src/server-json.js",
+    "dev:htmx": "bun --watch run src/server-htmx.js",
+    "lint": "standard",
+    "lint:fix": "standard --fix"
+  },
+  "standard": {
+    "globals": [
+      "Bun"
+    ]
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "handlebars": "^4.7.8",
+    "standard": "^17.1.0",
+    "uuid": "^9.0.1"
+  }
+}

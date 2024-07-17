@@ -1,0 +1,3 @@
+<form action="/todos/{{this.id}}" method="POST" hx-patch="/todos/{{this.id}}" hx-swap="outerHTML">
+  <input class="edit" type="text" name="text" value="{{this.text}}">
+</form>

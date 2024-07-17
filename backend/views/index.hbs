@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HTMX • TodoMVC</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/todomvc-app-css@2.4.3/index.min.css">
+    {{! CSS overrides - remove if you don't need it }}
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <section class="todoapp">
+      <header class="header">
+        <h1>Todos</h1>
+        <form hx-post="/todos" hx-target="#todo-list" hx-swap="afterbegin" _="on htmx:afterOnLoad set #txtTodo.value to ''">
+            <input id="txtTodo" class="new-todo" name="text" placeholder="What needs to be done?" autofocus>
+        </form>
+      </header>
+      {{! This section should be hidden by default and shown when there are todos }}
+      <section class="main">
+        {{> includes/toggle-all allCompleted=allCompleted}}
+        <label for="toggle-all" title="Mark all as complete">Mark all as complete</label>
+
+        <ul id="todo-list" class="todo-list">
+          {{! These are here just to show the structure of the list items }}
+          {{! List items should get the class `editing` when editing and `completed` when marked as completed }}
+          {{#each todos}}
+              {{> includes/todo-item}}
+          {{/each}}
+        </ul>
+      </section>
+      {{! This footer should be hidden by default and shown when there are todos }}
+      <footer class="footer">
+        {{! This should be `0 items left` by default }}
+        {{> includes/item-count}}
+        {{! Remove this if you don't implement routing }}
+        <ul class="filters">
+          <li>
+            <a href="/?filter=all" class="{{#if (equal filter 'all')}}selected{{/if}}">All</a>
+          </li>
+          <li>
+            <a href="/?filter=active" class="{{#if (equal filter 'active')}}selected{{/if}}">Active</a>
+          </li>
+          <li>
+            <a href="/?filter=completed" class="{{#if (equal filter 'completed')}}selected{{/if}}">Completed</a>
+          </li>
+        </ul>
+        {{! Hidden if no completed items are left ↓ }}
+        {{!-- <button hx-post="/todos/clear-completed" hx-target="#todo-list" class="clear-completed" hx-swap-oob="true">Clear completed</button> --}}
+        {{> includes/clear-completed showClearCompleted=showClearCompleted }}
+      </footer>
+    </section>
+    {{! Scripts here. Don't remove ↓ }}
+    {{!-- <script src="https://unpkg.com/htmx.org@1.3.1"></script> --}}
+    <script src="https://unpkg.com/htmx.org@2.0.1"
+      integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/hyperscript.org@0.0.5"></script>
+</body>
+</html>

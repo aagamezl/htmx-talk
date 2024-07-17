@@ -1,0 +1,7 @@
+<li id="todo-{{this.id}}" class={{#if this.completed}}completed{{/if}}>
+  <div class="view">
+    <input type="checkbox" name="completed" class="toggle" {{#if this.completed}}checked{{/if}} hx-patch="/todos/{{this.id}}" hx-target="#todo-{{this.id}}" hx-swap="outerHTML">
+    <label hx-get="/todos/{{this.id}}" hx-target="#todo-{{this.id}}" hx-swap="outerHTML">{{this.text}}</label>
+    <button class="destroy" hx-delete="/todos/{{this.id}}" _="on htmx:afterOnLoad remove #todo-{{this.id}}"></button>
+  </div>
+</li>

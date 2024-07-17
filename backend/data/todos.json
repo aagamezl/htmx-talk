@@ -1,0 +1,28 @@
+[
+  {
+    "id": "bc29e7a4-7318-4eae-801f-5e2f39cbe1bc",
+    "text": "Start to run weekly soon",
+    "completed": false
+  },
+  {
+    "id": "966c1ee4-d941-4a5c-8e1c-5a1cb3ead9e0",
+    "text": "Buy groceries",
+    "completed": false
+  },
+  {
+    "id": "167ad520-434f-4f14-9d9c-e9c061382e32",
+    "text": "Learn Swedish",
+    "completed": true
+  },
+  {
+    "id": "c8bee8a5-a1a3-4c45-84d3-eb6240d5d524",
+    "text": "Learn Danish",
+    "name": "Learn Danish",
+    "completed": true
+  },
+  {
+    "id": "f7fadf56-77d2-4be7-bd39-3325a269a359",
+    "text": "htmx talk at Modelon",
+    "completed": false
+  }
+]
